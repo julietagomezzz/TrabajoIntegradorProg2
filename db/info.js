@@ -40,17 +40,32 @@ info = {
         {
             nombresuario:'emagondell',
             texto: '¿Tienen stock disponible?',
-            cover: '/public/images/users/ema.jpeg'
+            cover: '/public/images/users/ema.jpeg',
+            id: 1
         },
         {
             nombresuario:'julietagomez',
             texto: '¿Tienen envíos a todo el país?',
-            cover: '/public/images/users/juli.png'
+            cover: '/public/images/users/juli.png',
+            id: 2
         },
         {
             nombresuario:'valenkolek',
             texto: '¿Tienen envío gratis?',
-            cover: '/public/images/users/valen.png'
+            cover: '/public/images/users/valen.png',
+            id: 3
+        },
+        {
+            nombresuario:'juanneira',
+            texto: '¿Tienen cuotas sin interes?',
+            cover: '/public/images/users/juan.jpeg',
+            id: 3
+        },
+        {
+            nombresuario:'pilarmedico',
+            texto: '¿El producto es original?',
+            cover: '/public/images/users/pili.jpeg',
+            id: 3
         }
     ],
     user: {
