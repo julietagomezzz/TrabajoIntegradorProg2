@@ -1,6 +1,8 @@
+const products = require('../db/info')
+
 const indexController = {
     index : function(req, res) {
-        return res.render('index', { title: 'Express' });
+        return res.render('index', { products: info.products });
       },
       login: function (req, res){
         return res.render('login')
