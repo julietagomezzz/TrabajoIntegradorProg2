@@ -1,15 +1,15 @@
 const indexController = {
     index : function(req, res) {
-        res.render('index', { title: 'Express' });
+        return res.render('index', { title: 'Express' });
       },
       login: function (req, res){
-        res.render('login')
+        return res.render('login')
       },
       register: function (req, res){
-        res.render('register')
+        return res.render('register')
       },
       results: function (req, res){
-        res.render('search-results')
+        return res.render('search-results')
       },
 
 
