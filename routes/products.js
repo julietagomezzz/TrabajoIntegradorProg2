@@ -4,7 +4,8 @@ const productsController = require('../controllers/productsController');
 
 /* GET users listing. */
 router.get('/detalle/id/:id', productsController.detalle);
-router.get('/', productsController.index);
+router.get('/add', productsController.add);
+
 
 
 module.exports = router;
