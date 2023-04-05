@@ -6,4 +6,5 @@ var router = express.Router();
 router.get('/profile', usersController.profile);
 router.get('/editprofile', usersController.editprofile)
 
-module.exports = usersRouter;
+
+module.exports = router;
