@@ -7,7 +7,7 @@
 :root {
   --yellow: #f7f7f7fefe;
   --dark-blue: #03264C;
-  --light-blue: #1259c3;
+  --light-blue: #737880;
   --gray: #666666;
   --light-gray: #f7f7f7;
   --green: #39b54a;
@@ -262,7 +262,7 @@ hr {
 
 /*====== Footer ======*/
 .main-footer {
-  background-color: #ffffff;
+  background-color: rgb(166, 44, 56);
   padding: 20px 0;
   margin-top: 80px;
 }
@@ -272,18 +272,18 @@ hr {
 }
 
 .footer-data i {
-  color: var(--light-blue);
+  color: var(--light-gray);
   font-size: 3.5em;
 }
 
 .footer-data h2 {
-  color: var(--gray);
+  color: var(--light-gray);
   font-size: 2.4em;
   font-weight: 400;
 }
 
 .footer-data p {
-  color: var(--gray);
+  color: var(--light-gray);
   font-size: 1.5em;
   font-weight: 300;
 }

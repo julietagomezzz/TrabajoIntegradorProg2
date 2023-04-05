@@ -1,4 +1,4 @@
-info = {
+data = {
     products: [
         {
             nombre: 'Shampoo Kerastase',
