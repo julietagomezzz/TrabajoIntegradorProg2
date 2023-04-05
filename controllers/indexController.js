@@ -1,4 +1,4 @@
-const products = require('../data/info')
+const products = require('../data/data')
 
 const indexController = {
     index : function(req, res) {

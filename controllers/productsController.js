@@ -5,17 +5,17 @@ const productsController ={
   
   detalle: function(req,res){
     id = req.params.id
-    for(let i = 0; i< info.products.lenght; i++){
-        if( id== info.products[i].id){
-            product_info = info.products[i]
+    for(let i = 0; i< data.products.lenght; i++){
+        if( id== data.products[i].id){
+            product_info = data.products[i]
         }
       }
-      res.render('product', {id:id, products: info.products, product_info: product_info, comments:info.comments})
+      res.render('product', {id:id, products: data.products, product_info: product_info, comments:data.comments})
 
     },
   
     add: function (req,res) {
-      res.render('product-add', {user:info.user})
+      res.render('product-add', {user:data.user})
     }
 }
 
