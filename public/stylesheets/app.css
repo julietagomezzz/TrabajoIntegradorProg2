@@ -5,11 +5,11 @@
 
 /*====== Variables ======*/
 :root {
-  --yellow: #ede6de;
+  --yellow: #f7f7f7fefe;
   --dark-blue: #03264C;
   --light-blue: #1259c3;
   --gray: #666666;
-  --light-gray: #d7ccbe;
+  --light-gray: #f7f7f7;
   --green: #39b54a;
   --base-font-family: 'Montserrat', sans-serif
 }
@@ -43,7 +43,7 @@ ol {
 a {
   display: inline-block;
   text-decoration: bold;
-  color: inherit;
+  color: rgb(166, 44, 56);
 }
 
 figure {
@@ -52,7 +52,8 @@ figure {
 }
 
 img {
-  width: 90%;
+  width: 110%;
+  height: 110%;
 }
 
 input,
@@ -155,11 +156,11 @@ hr {
 
 /*====== Banner ======*/
 .banner {
-  background-image: url(/TrabajoIntegradorProg2/public/images/img-home-banner.jpg);
+  background-image: url(/TrabajoIntegradorProg2/public/images/sephora.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  height: 100px;
+  height: 50px;
   width: 1404px;
 }
 
