@@ -77,4 +77,4 @@ data = {
     }
 }
 
-module.exports = info;
+module.exports = data;
