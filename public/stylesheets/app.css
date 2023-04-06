@@ -52,7 +52,7 @@ figure {
 }
 
 img {
-  width: 110%;
+  width: 80%;
   height: 110%;
 }
 
@@ -156,7 +156,7 @@ hr {
 
 /*====== Banner ======*/
 .banner {
-  background-image: url(/TrabajoIntegradorProg2/public/images/sephora.jpg);
+  background-image: url(/TrabajoIntegradorProg2/public/images/banner.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
