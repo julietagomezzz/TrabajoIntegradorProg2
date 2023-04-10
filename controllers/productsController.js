@@ -4,7 +4,7 @@ const productsController ={
       },
       
   detalle: function(req,res){
-   res.render('products')
+   res.render('product' , {comments: data.coments} )
 
     },
   
