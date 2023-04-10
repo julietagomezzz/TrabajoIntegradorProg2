@@ -29,7 +29,7 @@ data = {
             id: 4,
         },
     ],
-    coments: [
+    comments: [
         {
             nombresuario:'emagondell',
             texto: '¿Tienen stock disponible?',
