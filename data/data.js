@@ -2,45 +2,38 @@ data = {
     products: [
         {
             nombre: 'Shampoo Kerastase',
-            cover: '/public/images/products/shampoo.jpg',
+            cover: '/images/products/shampoo.jpg',
             descripcion: 'Shampoo Kerastase super hidratante',
             fechacarga: '05/02/2023',
             id: 1,
         },
         {
             nombre: 'Labial Dior',
-            cover: '/public/images/products/labialdior.jpp',
+            cover: '/images/products/labialdior.jpg',
             descripcion: 'Labial Dior rojo humectante',
             fechacarga: '07/02/2023',
             id: 2,
         },
         {
             nombre: 'Mascara Lancome',
-            cover: '/public/images/products/mascaralancome.jpp',
+            cover: '/images/products/mascaralancome.jpg',
             descripcion: 'Máscara Lancome grandiosa',
             fechacarga: '09/02/2023',
             id: 3,
         },
         {
             nombre: 'Acondicionador Kerastase',
-            cover: '/public/images/products/acondicionador.jpp',
+            cover: '/images/products/acondicionador.jpg',
             descripcion: 'Acondicionador Kerastase super hidratante',
             fechacarga: '11/03/2023',
             id: 4,
         },
-        {
-            nombre: 'Desmaquillante Lancome',
-            cover: '/public/images/products/desmaquillante.jpp',
-            descripcion: 'Desmaquillante Lancome super suave',
-            fechacarga: '13/03/2023',
-            id: 5,
-        }
     ],
     coments: [
         {
             nombresuario:'emagondell',
             texto: '¿Tienen stock disponible?',
-            cover: '/public/images/users/ema.jpeg',
+            cover: '/public/images/users/ema.jpg',
             id: 1
         },
         {
@@ -73,7 +66,7 @@ data = {
         usuario: 'julivalenema',
         contraseña: 'trabajointegrador',
         dni: '28630542',
-        foto: './public/images/users/fotoperfil.jpg'
+        foto: '/images/users/fotoperfil.jpg'
     }
 }
 
