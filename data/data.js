@@ -73,7 +73,7 @@ data = {
         usuario: 'julivalenema',
         contraseña: 'trabajointegrador',
         dni: '28630542',
-        foto: '/public/images/users/fotoperfil.avif'
+        foto: './public/images/users/fotoperfil.jpg'
     }
 }
 
