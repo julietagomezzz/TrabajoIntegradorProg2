@@ -9,7 +9,7 @@ data = {
         },
         {
             nombre: 'Labial Dior',
-            cover: '/images/products/labialdior.jpg',
+            cover: '/images/products/labialdior.webp',
             descripcion: 'Labial Dior rojo humectante',
             fechacarga: '07/02/2023',
             id: 2,
