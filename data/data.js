@@ -30,7 +30,7 @@ data = {
         },
         {
             nombre: 'Desmaquillante Lancome',
-            cover: '/images/products/desmaquillante.jpg',
+            cover: '/images/products/desmaquillante.webp',
             descripcion: 'Desmaquillante Lancome super suave',
             fechacarga: '13/03/2023',
             id: 5,
