@@ -48,5 +48,9 @@ values (default, 'ema@udesa.com', 'contrasena1', '/images/users/ema.jpeg', '2023
 (default, 'juanneira@udesa.com','contrasena4', '/images/users/juan.jpeg', '2023-1-1', 44444 ),
 (default, 'pilarmedico@udesa.com','contrasena5', '/images/users/pili.jpeg', '2023-1-1', 55555 );
 
-
-
+insert into productos (id, nombre, cover, descripcion, fechacarga)
+values (default, 'Shampoo Kerastase', '/images/products/shampoo.jpg', 'Shampoo Kerastase super hidratante', '2023-02-05'),
+(default, 'Labial Dior', '/images/products/labialdior.webp', 'Labial Dior rojo humectante', '2023-02-07'),
+(default, 'Mascara Lancome', '/images/products/mascaralancome.jpg', 'Máscara Lancome grandiosa', '2023-02-09'),
+(default, 'Acondicionador Kerastase', '/images/products/acondicionador.jpg', 'Acondicionador Kerastase super hidratante', '2023-03-11'),
+(default, 'Desmaquillante Lancome', '/images/products/desmaquillante.webp', 'Desmaquillante Lancome super suave', '2023-03-13');
