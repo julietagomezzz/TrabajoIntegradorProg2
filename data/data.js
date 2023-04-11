@@ -34,6 +34,27 @@ data = {
             descripcion: 'Desmaquillante Lancome super suave',
             fechacarga: '13/03/2023',
             id: 5,
+        },
+        {
+            nombre: 'Contorno Rare Beauty',
+            cover: '/images/products/contornorare.jpeg',
+            descripcion: 'Contorno Rare Beauty en crema',
+            fechacarga: '19/03/2023',
+            id: 6,
+        },
+        {
+            nombre: 'Rubor Mac',
+            cover: '/images/products/rubormac.avif',
+            descripcion: 'Rubor Mac super pigmentado',
+            fechacarga: '02/04/2023',
+            id: 7,
+        },
+        {
+            nombre: 'Sombra Dior',
+            cover: '/images/products/sombradior.jpeg',
+            descripcion: 'Paleta de sombras colores neutros',
+            fechacarga: '13/03/2023',
+            id: 8,
         }
     ],
     comments: [
