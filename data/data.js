@@ -28,6 +28,13 @@ data = {
             fechacarga: '11/03/2023',
             id: 4,
         },
+        {
+            nombre: 'Desmaquillante Lancome',
+            cover: '/images/products/desmaquillante.jpg',
+            descripcion: 'Desmaquillante Lancome super suave',
+            fechacarga: '13/03/2023',
+            id: 5,
+        }
     ],
     comments: [
         {
@@ -52,13 +59,13 @@ data = {
             nombreusuario:'juanneira',
             texto: '¿Tienen cuotas sin interes?',
             cover: '/images/users/juan.jpeg',
-            id: 3
+            id: 4
         },
         {
             nombreusuario:'pilarmedico',
             texto: '¿El producto es original?',
             cover: '/images/users/pili.jpeg',
-            id: 3
+            id: 5
         }
     ],
     user: {

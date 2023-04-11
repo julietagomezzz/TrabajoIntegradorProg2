@@ -23,7 +23,7 @@
 	
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"> detalle del producto </h2> 
+			<h2 class="products-title"> <%= data.products[0].nombre %></h2> 
 			<p class="product-detail-description">
 				<a href="/product-add">Editar</a>
 			</p>
@@ -32,9 +32,9 @@
 			<div class="row">
 
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="./images/products/default-image.png" alt="" class="product-detail-img">
+					<img src=<%= data.products[0].cover %> alt="" class="product-detail-img">
 					<p class="product-detail-description">
-						<%= data.products.descripcion%> </p>
+						<%= data.products[0].descripcion%> </p>
 				</article>
 
 				<div class="col-12 col-lg-4">
@@ -45,13 +45,13 @@
 								<div class="data">
 									<p class="user">
 									<strong> <a href="/profile"><%= comments[i].nombreusuario %> </a> </strong>
-									<%= comments[i].texto %>
+									<%= data.comments[i].texto %>
 								</div>
 							</article>
 						
 						<% } %>
 					</section>
-					<form class="form" action="" method="POST">
+					<form class="form" action="/products/detalle" method="GET">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
