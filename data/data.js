@@ -55,6 +55,34 @@ data = {
             descripcion: 'Paleta de sombras colores neutros',
             fechacarga: '13/03/2023',
             id: 8,
+        },
+        {
+            nombre: 'Gloss Dior',
+            cover: '/images/products/glossdior.jpeg',
+            descripcion: 'Gloss super brillante',
+            fechacarga: '17/03/2023',
+            id: 9,
+        },
+        {
+            nombre: 'Set Labial Kylie Cosmetics',
+            cover: '/images/products/labialkylie.jpeg',
+            descripcion: 'Set de labios color nude',
+            fechacarga: '21/03/2023',
+            id: 10,
+        },
+        {
+            nombre: 'Paleta Anastasia',
+            cover: '/images/products/paletaansatasia.jpeg',
+            descripcion: 'Paleta de sombras para ojos muy pigmentada',
+            fechacarga: '26/03/2023',
+            id: 11,
+        },
+        {
+            nombre: 'Hoola Bronzer',
+            cover: '/images/products/hoolabronzer.jpeg',
+            descripcion: 'Contorno en polvo',
+            fechacarga: '02/04/2023',
+            id: 12,
         }
     ],
     comments: [
