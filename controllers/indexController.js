@@ -11,7 +11,7 @@ const indexController = {
           return res.render('register')
       },
       results: function (req, res){
-          return res.render('search-results', )
+          return res.render('search-results',{products: data.products} )
       },
 
 

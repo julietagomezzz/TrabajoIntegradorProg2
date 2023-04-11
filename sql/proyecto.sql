@@ -39,3 +39,13 @@ deletedAt timestamp default current_timestamp,
 foreign key (usuario_id) references usuarios(id),
 foreign key (producto_id) references productos(id)
 );
+
+insert into usuarios (id, email, contrasena, fotoDePerfil, fecha, dni)
+values (default, 'ema@udesa.com', 'contrasena1', '/images/users/ema.jpeg', '2023-1-1', 11111),
+(default, 'julietagomez@udesa.com', 'contrasena2', '/images/users/juli.png', '2023-1-1', 22222),
+(default, 'valenkolek@udesa.com', 'contrasena3', '/images/users/valen.png', '2023-1-1', 33333),
+(default, 'juanneira@udesa.com','contrasena4', '/images/users/juan.jpeg', '2023-1-1', 44444 ),
+(default, 'pilarmedico@udesa.com','contrasena5', '/images/users/pili.jpeg', '2023-1-1', 55555 );
+
+
+
