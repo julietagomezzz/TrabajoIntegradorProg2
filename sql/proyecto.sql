@@ -22,7 +22,8 @@ descripcion varchar(500) not null,
 usuario_id int unsigned not null,
 foreign key (usuario_id) references usuarios(id),
 createdAt timestamp default current_timestamp,
-updatedAt timestamp default current_timestamp on update current_timestamp
+updatedAt timestamp default current_timestamp on update current_timestamp,
+deletedAt timestamp default current_timestamp
 );
 
 
