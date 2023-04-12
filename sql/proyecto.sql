@@ -48,9 +48,14 @@ values (default, 'ema@udesa.com', 'contrasena1', '/images/users/ema.jpeg', '2023
 (default, 'juanneira@udesa.com','contrasena4', '/images/users/juan.jpeg', '2023-1-1', 44444 ),
 (default, 'pilarmedico@udesa.com','contrasena5', '/images/users/pili.jpeg', '2023-1-1', 55555 );
 
-insert into productos (id, nombre, cover, descripcion, fechacarga)
-values (default, 'Shampoo Kerastase', '/images/products/shampoo.jpg', 'Shampoo Kerastase super hidratante', '2023-02-05'),
-(default, 'Labial Dior', '/images/products/labialdior.webp', 'Labial Dior rojo humectante', '2023-02-07'),
-(default, 'Mascara Lancome', '/images/products/mascaralancome.jpg', 'Máscara Lancome grandiosa', '2023-02-09'),
-(default, 'Acondicionador Kerastase', '/images/products/acondicionador.jpg', 'Acondicionador Kerastase super hidratante', '2023-03-11'),
-(default, 'Desmaquillante Lancome', '/images/products/desmaquillante.webp', 'Desmaquillante Lancome super suave', '2023-03-13');
+insert into productos (id, nombre, descripcion, usuario_id)
+values (default, 'Shampoo Kerastase', 'Shampoo Kerastase super hidratante', 1),
+(default, 'Labial Dior', 'Labial Dior rojo humectante', 2),
+(default, 'Mascara Lancome', 'Máscara Lancome grandiosa', 3),
+(default, 'Acondicionador Kerastase', 'Acondicionador Kerastase super hidratante', 4),
+(default, 'Desmaquillante Lancome', 'Desmaquillante Lancome super suave', 5),
+(default, 'Contorno Rare Beauty', 'Contorno Rare Beauty en crema', 1),
+(default, 'Rubor Mac', 'Rubor Mac super pigmentado', 2),
+(default, 'Sombra Dior', 'Paleta de sombras colores neutros', 3),
+(default, 'Gloss Dior', 'Gloss super brillante', 4),
+(default, 'Set Labial Kylie Cosmetics', 'Set de labios color nude', 5);
