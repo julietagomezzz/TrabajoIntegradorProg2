@@ -26,11 +26,8 @@ updatedAt timestamp default current_timestamp on update current_timestamp,
 deletedAt timestamp default current_timestamp
 );
 
-
-
 create table comentarios(
-id_post int unsigned primary key auto_increment,
-id_usuario int,
+id int unsigned primary key auto_increment,
 comentarios text,
 usuario_id int unsigned,
 producto_id int unsigned,
@@ -38,7 +35,7 @@ createdAt timestamp default current_timestamp,
 updatedAt timestamp default current_timestamp on update current_timestamp,
 deletedAt timestamp default current_timestamp,
 foreign key (usuario_id) references usuarios(id),
-foreign key (producto_id) references productos(id)
+foreign key (producto_id) references prodid_postid_postid_postid_postuctos(id)
 );
 
 insert into usuarios (id, email, contrasena, fotoDePerfil, fecha, dni)
@@ -59,3 +56,46 @@ values (default, 'Shampoo Kerastase', 'Shampoo Kerastase super hidratante', 1),
 (default, 'Sombra Dior', 'Paleta de sombras colores neutros', 3),
 (default, 'Gloss Dior', 'Gloss super brillante', 4),
 (default, 'Set Labial Kylie Cosmetics', 'Set de labios color nude', 5);
+
+insert into comentarios (id, comentarios, usuario_id, producto_id)
+values (default, '¿Tienen stock disponible?', 1, 1),
+(default, '¿Tienen envíos a todo el país?', 2, 1),
+(default, '¿Tienen envío gratis?', 3, 1),
+(default, '¿Tienen cuotas sin interes?', 4, 1),
+(default, '¿El producto es original?', 5, 2),
+(default, '¿Tienen stock disponible?', 1, 2),
+(default, '¿Tienen envíos a todo el país?', 2, 2),
+(default, '¿Tienen envío gratis?', 3, 2),
+(default, '¿Tienen cuotas sin interes?', 4, 3),
+(default, '¿El producto es original?', 5, 3),
+(default, '¿Tienen stock disponible?', 1, 3),
+(default, '¿Tienen envíos a todo el país?', 2, 3),
+(default, '¿Tienen envío gratis?', 3, 4),
+(default, '¿Tienen cuotas sin interes?', 4, 4),
+(default, '¿El producto es original?', 5, 4),
+(default, '¿Tienen stock disponible?', 1, 4),
+(default, '¿Tienen envíos a todo el país?', 2, 5),
+(default, '¿Tienen envío gratis?', 3, 5),
+(default, '¿Tienen cuotas sin interes?', 4, 5),
+(default, '¿El producto es original?', 5, 5),
+(default, '¿Tienen stock disponible?', 1, 6),
+(default, '¿Tienen envíos a todo el país?', 2, 6),
+(default, '¿Tienen envío gratis?', 3, 6),
+(default, '¿Tienen cuotas sin interes?', 4, 6),
+(default, '¿El producto es original?', 5, 7),
+(default, '¿Tienen stock disponible?', 1, 7),
+(default, '¿El producto es original?', 2, 7),
+(default, '¿Tienen envío gratis?', 3, 7),
+(default, '¿Tienen cuotas sin interes?', 4, 8),
+(default, '¿El producto es original?', 5, 8),
+(default, '¿Tienen stock disponible?', 1, 8),
+(default, '¿Tienen envíos a todo el país?', 2, 8),
+(default, '¿Tienen envío gratis?', 3, 9),
+(default, '¿Tienen cuotas sin interes?', 4, 9),
+(default, '¿El producto es original?', 5, 9),
+(default, '¿Tienen stock disponible?', 1, 9),
+(default, '¿Tienen envíos a todo el país?', 2, 10),
+(default, '¿Tienen envío gratis?', 3, 10),
+(default, '¿Tienen cuotas sin interes?', 4, 10),
+(default, '¿El producto es original?', 5, 10);
+
