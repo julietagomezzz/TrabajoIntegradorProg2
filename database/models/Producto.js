@@ -4,22 +4,26 @@ module.exports = function (sequelize, dataTypes) {
         id : {
             autoIncrement: true,
             primaryKey : true,
-            type: dataTypes.INTEGER
+            type: dataTypes.INTEGER.UNSIGNED
         },
         nombre: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING,
+            allowNull:false
         },
         descripcion: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING,
+            allowNull:false
         },
         usuario_id: {
             type: dataTypes.INTEGER
         },
         createdAt: {
-            type: dataTypes.DATE
+            type: dataTypes.DATE,
+            allowNull: true
         },
         updatedAt: {
-            type: dataTypes.DATE
+            type: dataTypes.DATE,
+            allowNull:true
         }
     }
     let config = {
@@ -30,11 +34,11 @@ module.exports = function (sequelize, dataTypes) {
     let Producto = sequelize.define(alias, cols, config);
     Producto.associate = function (models) {
         Producto.belongsTo(models.Usuario, {
-            as: "usuarios",
+            as: "usuario",
             foreignKey: "usuario_id"
         });
         Producto.hasMany(models.Comentario, {
-            as: 'comentarios', 
+            as: 'comentario', 
             foreignKey: 'producto_id'
         })
         }

@@ -7,10 +7,13 @@ module.exports = function (sequelize, dataTypes) {
             type: dataTypes.INTEGER
         },
         email: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING,
+            allowNull: false,
+            unique: true
         },
         contrasena: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING,
+            allowNull : false
         },
         fotoDePerfil: {
             type: dataTypes.STRING
@@ -22,17 +25,32 @@ module.exports = function (sequelize, dataTypes) {
             type: dataTypes.BIGINT
         },
         createdAt: {
-            type: dataTypes.DATE
+            type: dataTypes.DATE,
+            allowNull: false
         },
         updatedAt: {
-            type: dataTypes.DATE
+            type: dataTypes.DATE,
+            allowNull: true
         }
     }
     let config = {
         tableName: "usuarios",
-        timestamps: false,
-        underscored: true,
+        timestamps: true,
+        underscored: false,
     }
-    let Usuario = sequelize.define(alias, cols, config);
+    let Usuario = sequelize.define(alias,cols,config); 
+    Usuario.associate = function(models){
+        Usuario.hasMany(models.Producto , {
+            as: 'producto',
+            foreignKey: 'usuario_id' 
+        })
+        Usuario.hasMany(models.Comentario, {
+            as: 'comentario',
+            foreignKey: 'usuario_id'
+        })
+        
+        
+    }
     return Usuario;
+
 }
