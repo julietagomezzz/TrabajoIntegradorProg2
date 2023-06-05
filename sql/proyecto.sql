@@ -35,7 +35,7 @@ createdAt timestamp default current_timestamp,
 updatedAt timestamp default current_timestamp on update current_timestamp,
 deletedAt timestamp default current_timestamp,
 foreign key (usuario_id) references usuarios(id),
-foreign key (producto_id) references prodid_postid_postid_postid_postuctos(id)
+foreign key (producto_id) references productos(id)
 );
 
 insert into usuarios (id, email, contrasena, fotoDePerfil, fecha, dni)
