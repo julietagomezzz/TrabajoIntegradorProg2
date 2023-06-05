@@ -1,4 +1,4 @@
-// const db = require('../database/models/Producto')
+const db = require('../database/models')
 
 const productsController ={
     

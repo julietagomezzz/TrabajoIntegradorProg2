@@ -1,4 +1,4 @@
-// const db = require('../database/models/Usuario')
+const db = require('../database/models')
 
 const usersController = {
     profile: function(req,res){
