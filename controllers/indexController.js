@@ -1,5 +1,9 @@
 const products = require('../data/data')
 const db = require('../database/models')
+const bcryptjs = require('bcryptjs')
+const Producto = db.Producto;
+const Usuario = db.Usuario;
+const Comentario = db.Comentario;
 
 const indexController = {
     index : function(req, res) {
