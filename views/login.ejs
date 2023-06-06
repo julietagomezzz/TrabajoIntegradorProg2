@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link width="" rel="shortcut icon" href="/images/sephora2.jpg" />
 
-	<title> Mercado Liebre Argentina</title>
+	<title> Sephora Argentina</title>
 	<!-- Font Awesome Stylesheet -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 	<!-- Bootstrap Grid Stylesheet -->
@@ -30,14 +30,18 @@
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> 
 				<i>
-					<form action="/users/profile" method="get">
-						<h5>Usuario: <input type="email" name="" id=""></h5>
-						<h5>Contraseña: <input type="password"></h5>
-						<h5>Recordarme: <input type="checkbox" name="" id=""></h5>
-						<button type="submit">Iniciar sesion</button>
-						
-
-					</form>
+					<form action="/login" method="post" class="formulario">
+						<ul> 
+							<li><label class="form-label" for="email">Ingrese usuario (mail): </label></li>
+							<li><input class="form-label" type="email" name="email" value="" required></li> 
+							<li><label class="form-label" for="password">Ingrese contraseña: </label></li>
+							<li><input class="form-label"type="password" name="password" value="" placeholder="" required></li>
+							<li> <label class="form-label" for="checkbox"> Recordar usuario</label> </li>
+							<li> <input class="form-label" type="checkbox" name="recordarme" value="Sí" ></li>
+							<button class="botonFormulario"type="submit">Iniciar sesión</button>
+						</ul>
+		
+						</form>
 				</i> <br>
 			
 			</h2>

@@ -40,9 +40,9 @@ const usersController = {
     Posteditprofile: function (req,res) {
 
         let profile_edit = {
-            nombre:req.body.nombre, 
+            email:req.body.email, 
             contrasena:req.body.contrasena, 
-            fotoDeperfil:req.body.fotoDeperfil, 
+            fotoDeperfil:req.body.fotoDePerfil, 
             fecha:  req.body.fecha,
             dni: req.body.dni
         }

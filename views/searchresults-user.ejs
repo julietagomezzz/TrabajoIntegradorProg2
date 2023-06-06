@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link width="" rel="shortcut icon" href="/images/sephora2.jpg" />
+
+	<title> Sephora Argentina</title>
+	<!-- Font Awesome Stylesheet -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+	<!-- Bootstrap Grid Stylesheet -->
+	<link rel="stylesheet" href="stylesheets/bootstrap-grid.min.css">
+	<!-- Own Stylesheet -->
+	<link rel="stylesheet" href="/stylesheets/app.css">
+</head>
+
+<body>
+	<!-- Header -->
+	<%- include('./partials/header.ejs')%>
+
+	<!-- /Header -->
+
+
+    	<!-- Datos del usuario -->
+	<section class="info-usuario container products-wrapper">
+		<div class="row">
+
+
+			<div class="img-container offset-3 col-2"> 
+				<img src= ' <%= user.fotoDePerfil %>' alt="foto de perfil" class="foto-perfil">
+			</div>
+
+			<div class="data-container col-6">
+				<div class="d-flex align-items-center ">
+
+					<h1 class="main-title"> <%= user.nombre %>
+						
+					</h1>
+
+					<% if (locals.username) { %> <!-- Si esta logueado -->
+
+					<% if (locals.username.id == user.id) { %> <!-- Si esta logueado y coincide que es su perfil que muestre para editar perfil -->
+
+					<h1 class="main-title">
+					<a href="/users/editprofile/<%=user.id %> ">
+							<i class="fas fa-cog"></i>
+						</a>
+					</h1>
+					
+			<% } else { %>
+			<a class="btn mt-3 ml-4" href="">SEGUIR</a> <!-- Si esta logueado pero no coincide que es su perfil que muestre para seguir -->
+			<% }  %>
+					 
+					<% }  else { %>
+
+					<a href="/login"><button class="botonSeguir">Debe estar registrado para poder seguir al usuario</button></a> 
+					<!-- Si no esta logueado que aparezca un cartel y  lo redireccione a login -->
+					 
+<% } %>
+
+					
+	
+				</div>
+				<div>
+					<ul class="">
+						<li> <%= products.length %>  productos</li>
+						<li>200 seguidores</li>
+                        
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- /Datos del usuario -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Novedades</h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+			<% for( let i = 0; i < products.length; i++ ) { %>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="/products/detalle">
+							<figure class="product-box_image">
+								<img src=<%= products[i].cover %> alt=<%= products[i].nombre %>>
+							</figure>
+							<article class="product-box_data">
+								<h2><%= products[i].nombre %></h2>
+								<p><%= products[i].descripcion %></p>
+								<p>Comentarios: 5</p>
+							</article>
+						</a>
+					</section>
+				</div>
+			<% } %>
+
+		</div>
+	</div>
+
+
+</body>

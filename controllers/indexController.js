@@ -4,6 +4,7 @@ const bcryptjs = require('bcryptjs')
 const Producto = db.Producto;
 const Usuario = db.Usuario;
 const Comentario = db.Comentario;
+const op = db.SequelizeOp;
 
 const indexController = {
     index : function(req, res) {
@@ -94,10 +95,9 @@ const indexController = {
                 
                 let passEncriptada= bcryptjs.hashSync(req.body.contrasena,req.body.contrasena.length);
                 let usuario = {
-                    nombre:req.body.nombre, //allowNull: false
                     email:req.body.email, //allowNull: false
                     contrasena:passEncriptada, //allowNull: false
-                    fotoDeperfil: req.body.fotoDeperfil,
+                    fotoDePerfil: req.body.fotoDePerfil,
                     fecha: req.body.date ,
                     dni: req.body.dni 
                 }

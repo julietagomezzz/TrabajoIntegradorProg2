@@ -5,11 +5,9 @@ const Comentario = db.Comentario;
 
 const productsController = {
 
-
   detalle:function(req,res) { 
 
       let id = req.params.id
-
       let relaciones = {
           include: [
               {association:"usuario"},
@@ -17,11 +15,10 @@ const productsController = {
           ]
       }
 
-
       Producto.findByPk(id,relaciones)
       .then(function(products){
           
-          Comentario.findAll({where: [{id_post : products.id}] }, {order: [['createdAt', 'DESC']]})
+          Comentario.findAll({where: [{id : products.id}] }, {order: [['createdAt', 'DESC']]})
           .then(function(comment){
               return res.render('product', {products : products, user: [products.usuario], comment:comment})
           })
@@ -32,9 +29,6 @@ const productsController = {
  
   },
   detalleComment: function(req,res) {
-      
-  
-      
 
       let comentario = {
           comentario:req.body.comentario, 
@@ -51,8 +45,6 @@ const productsController = {
           console.log(err);
       })
       
-      
-      
 
   },
 
@@ -64,9 +56,7 @@ const productsController = {
       let producto = {
           nombre:req.body.nombre, 
           descripcion:req.body.descripcion, 
-          cover:req.body.cover, 
           usuario_id:  req.session.Usuario.id
-      
       }
       
       Producto.create(producto)
@@ -107,7 +97,7 @@ const productsController = {
 
           } else {
               let errors = {}
-              errors.message  = "No puede editar este producto, porque no le pertenece";
+              errors.message  = "No puede editar. Este producto no le pertenece";
               res.locals.errors = errors;
               return res.render('product-edit', {product:products})
           }
@@ -141,7 +131,7 @@ const productsController = {
           
           } else {
               let errors = {}
-              errors.message  = "No puede eliminar este producto porque no le pertence";
+              errors.message  = "No puede eliminar. Este producto no le pertenece";
               res.locals.errors = errors;
               return res.render('product', {products:products})
           }

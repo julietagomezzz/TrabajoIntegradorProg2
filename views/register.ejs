@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link width="" rel="shortcut icon" href="/images/sephora2.jpg" />
 
-	<title> Mercado Liebre Argentina</title>
+	<title> Sephora Argentina</title>
 	<!-- Font Awesome Stylesheet -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 	<!-- Bootstrap Grid Stylesheet -->
@@ -30,15 +30,23 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> 
-				<i> <form action="/users/profile" method="get">
-					<h5>Email: <input type="email" name="" id=""></h5>
-					<h5>Usuario: <input type="text"></h5>
-					<h5>Contraseña: <input type="password"></h5>
-					<h5>Fecha de Nacimiento: <input type="date" name="" id=""></h5>
-					<h5>Nro de Documento: <input type="number"></h5>
-					<h5>Foto de perfil: <input type="text"></h5>
-					<button type="submit" >Registrate</button>
-				</form>
+				<i> <form action="/register" method="POST" class="formulario">
+					<ul> 
+						<li><label class="form-label" for="email">Ingrese un mail: </label></li> 
+						<li><input class="form-label" type="email" name="email" value="" required ></li> 
+						<li><label class="form-label" for="text">Ingrese un nombre de usuario: </label></li> 
+						<li><input class="form-label" type="text" name="nombre" value=""   ></li>
+						<li><label class="form-label" for="password">Ingrese una contraseña:  </label></li> 
+						<li><input class="form-label" type="password" name="contrasena" value=""   ></li>
+						<li><label class="form-label" for="date">Ingrese fecha de nacimiento: </label></li> 
+						<li><input class="form-label" type="date" name="date" value="" ></li>
+						<li><label class="form-label" for="number">Ingrese su DNI:</label></li> 
+						<li><input class="form-label" type="number" name="dni" value="" ></li>
+						<li><label class="form-label" for="">Ingrese una foto de perfil: </label></li> 
+						<li><input class="form-label" type="text" name="fotoDePerfil" value="" ></li>
+						<button class="botonFormulario" type="submit">Registrate</button>
+					</ul>
+					</form>
 				
 			</i> 
 			</h2>
