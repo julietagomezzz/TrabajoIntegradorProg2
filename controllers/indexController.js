@@ -4,7 +4,7 @@ const bcryptjs = require('bcryptjs')
 const Producto = db.Producto;
 const Usuario = db.Usuario;
 const Comentario = db.Comentario;
-const op = db.SequelizeOp;
+const op = db.Sequelize.Op;
 
 const indexController = {
     index : function(req, res) {
@@ -112,6 +112,22 @@ const indexController = {
             
         },
       results: function (req, res){
+        let busqueda = req.query.search;
+        console.log(busqueda);
+        Producto.findAll({
+            order: [['createdAt', 'DESC']],
+            include: [{association:'usuario'},{association:'comentario'}],
+            where: {nombre: {[op.like]:'%'+busqueda+'%'}},
+            where: {descripcion:{[op.like]:'%'+busqueda+'%'}}
+        })
+            .then(function(data){
+                return res.send(data);
+                return res.render('search-results', {products: data});
+            })
+            .catch(function(error){
+                console.log(error);
+           
+        })
         let relaciones = {
             include: [
                 {association:"usuario"},

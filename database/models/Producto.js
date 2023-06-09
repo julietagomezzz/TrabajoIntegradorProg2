@@ -14,7 +14,7 @@ module.exports = function (sequelize, dataTypes) {
             type: dataTypes.STRING,
             allowNull:false
         },
-        usuario_id: {
+        usuarioId: {
             type: dataTypes.INTEGER
         },
         createdAt: {
@@ -32,18 +32,18 @@ module.exports = function (sequelize, dataTypes) {
     }
     let config = {
         tableName: "productos",
-        timestamps: false,
-        underscored: true,
+        timestamps: true,
+        underscored: false,
     }
     let Producto = sequelize.define(alias, cols, config);
     Producto.associate = function (models) {
         Producto.belongsTo(models.Usuario, {
             as: "usuario",
-            foreignKey: "usuario_id"
+            foreignKey: "usuarioId"
         });
         Producto.hasMany(models.Comentario, {
             as: 'comentario', 
-            foreignKey: 'producto_id'
+            foreignKey: 'productoId'
         })
         }
     return Producto;

@@ -32,8 +32,8 @@ const productsController = {
 
       let comentario = {
           comentario:req.body.comentario, 
-          usuario_id: req.session.Usuario.id, 
-          producto_id: req.params.id, 
+          usuarioId: req.session.Usuario.id, 
+          productoId: req.params.id, 
           
       }
       Comentario.create(comentario)
@@ -56,7 +56,7 @@ const productsController = {
       let producto = {
           nombre:req.body.nombre, 
           descripcion:req.body.descripcion, 
-          usuario_id:  req.session.Usuario.id
+          usuarioId:  req.session.Usuario.id
       }
       
       Producto.create(producto)
