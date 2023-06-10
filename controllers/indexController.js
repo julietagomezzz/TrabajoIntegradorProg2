@@ -1,4 +1,4 @@
-const products = require('../data/data')
+const data = require('../data/data')
 const db = require('../database/models')
 const bcryptjs = require('bcryptjs')
 const Producto = db.Producto;
@@ -8,21 +8,22 @@ const op = db.Sequelize.Op;
 
 const indexController = {
     index : function(req, res) {
-        Producto.findAll( {order: [['createdAt', 'DESC']], include: [
+        db.Producto.findAll( {order: [['createdAt', 'DESC']], include: [
             {association:"usuario"},
             {association:"comentario", include: [{association:"usuario"}]}
         ] })
 
-        .then(function(products){
-          return res.render('index', { products: data.products })})
+            .then(function(products){
+                return res.render('index', {products: data.product})})
 
-        .catch(function(err){console.log(err)}) 
-          ;
+            .catch(function(error){console.log(error)}) 
       },
-      login: function (req, res){
+
+    login: function (req, res){
           return res.render('login')
       },
-      loginPost: function(req,res){
+
+    loginPost: function(req,res){
         Usuario.findOne(
             {where: [{email: req.body.email}]}
             )
@@ -53,11 +54,12 @@ const indexController = {
             }
         })
     },
-      register: function (req, res){
+
+    register: function (req, res){
           return res.render('register')
       },
-      postRegister: function(req,res) {
 
+    postRegister: function(req,res) {
 
         console.log(req.body.email)
             
@@ -108,9 +110,9 @@ const indexController = {
             }).catch(function(error) {
                 console.log(error);
             })
-            
-            
+              
         },
+
       results: function (req, res){
         let busqueda = req.query.search;
         console.log(busqueda);
@@ -139,7 +141,7 @@ const indexController = {
         .then(function(products){
             return res.render('search-results', {products:products})
         } )
-        .catch(function(err){console.log(err)})
+        .catch(function(error){console.log(error)})
         
     }
 

@@ -7,7 +7,7 @@ router.get('/', indexController.index);
 router.get('/login', indexController.login);
 router.get('/register', indexController.register);
 router.get('/results', indexController.results);
-
+router.get('/register', indexController.register)
 
 
 module.exports = router;

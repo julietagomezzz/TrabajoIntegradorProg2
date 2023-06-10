@@ -19,7 +19,7 @@ create table productos(
 id int unsigned primary key auto_increment,
 nombre varchar(250) not null,
 descripcion varchar(500) not null,
-usuario_id int unsigned not null,
+usuarioId int unsigned not null,
 foreign key (usuario_id) references usuarios(id),
 createdAt timestamp default current_timestamp,
 updatedAt timestamp default current_timestamp on update current_timestamp,

@@ -15,7 +15,7 @@ module.exports = function (sequelize, dataTypes) {
             allowNull:false
         },
         usuarioId: {
-            type: dataTypes.INTEGER
+            type: dataTypes.INTEGER.UNSIGNED
         },
         createdAt: {
             type: dataTypes.DATE,
