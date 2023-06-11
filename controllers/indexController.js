@@ -1,4 +1,4 @@
-const data = require('../data/data')
+const products = require('../data/data')
 const db = require('../database/models')
 const bcryptjs = require('bcryptjs')
 const Producto = db.Producto;
@@ -14,7 +14,7 @@ const indexController = {
         ] })
 
             .then(function(products){
-                return res.render('index', {products: data.product})})
+                return res.render('index', {products: data.products})})
 
             .catch(function(error){console.log(error)}) 
       },
