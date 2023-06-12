@@ -143,7 +143,26 @@ const indexController = {
         })
         
         
-    }
+    },
+    searchresultsUser: function(req,res) {
+        let busqueda = req.query.search;
+        let criterio = {
+            where: {
+                [op.or]: [{
+                      nombre: {
+                         [op.like]: "%"+busqueda+"%"
+                      }
+                   },
+                   {
+                      email: {
+                         [op.like]: "%"+busqueda+"%"
+                      }
+                   }
+                ]
+             }
+            
+            }
+        }
 
 
 }

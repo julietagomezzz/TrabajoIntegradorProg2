@@ -88,13 +88,13 @@ const productsController = {
 
       .then(function(products){
 
-          if (req.session.Usuario.id == products.usuario_id) {
+          if (req.session.Usuario.id == products.usuarioId) {
 
               let producto_edit = {
                   nombre:req.body.nombre, 
                   descripcion:req.body.descripcion, 
                   cover:req.body.cover, 
-                  usuario_id:  req.session.Usuario.id}
+                  usuarioId:  req.session.Usuario.id}
       
                
               Producto.update(producto_edit, {where: [{id: req.params.id}]})
@@ -127,11 +127,11 @@ const productsController = {
 
       .then(function(products){
 
-          if (req.session.Usuario.id == products.usuario_id) {
+          if (req.session.Usuario.id == products.usuarioId) {
 
               Producto.destroy({where: [{ id: req.params.id}]})
               .then(function(coment) {
-                  Comentario.destroy({where: [ {producto_id : req.params.id}]})
+                  Comentario.destroy({where: [ {productoId : req.params.id}]})
                   return res.redirect('/') 
               })
                   
