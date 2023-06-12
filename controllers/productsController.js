@@ -17,7 +17,7 @@ const productsController = {
 
       Producto.findByPk(id,relaciones)
       .then(function(data){
-        return res.render('product', { data:data, comments: data.comentario})   
+        return res.render('product', { data:data})   
       })
       .catch(function(err) {
           console.log(err);
