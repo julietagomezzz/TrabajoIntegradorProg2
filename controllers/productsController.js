@@ -6,7 +6,14 @@ const Comentario = db.Comentario;
 const productsController = {
 
   detalle:function(req,res) { 
+        let errors = {}
 
+        if (req.body.nombre == ""){
+            errors.message = "el campo nombre esta vacio";
+            res.locals.errors = errors
+            res.render('register')
+
+        }
       let id = req.params.id
       let relaciones = {
           include: [
