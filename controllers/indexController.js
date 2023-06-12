@@ -8,15 +8,14 @@ const op = db.Sequelize.Op;
 
 const indexController = {
     index : function(req, res) {
-        db.Producto.findAll( {order: [['createdAt', 'DESC']], include: [
+        Producto.findAll( {order: [['createdAt', 'DESC']], include: [
             {association:"usuario"},
             {association:"comentario", include: [{association:"usuario"}]}
         ] })
-
-            .then(function(products){
-                return res.render('index', {products: data.products})})
-
-            .catch(function(error){console.log(error)}) 
+        .then(function(data){
+            return res.render('index', {data: data})})
+            
+        .catch(function(error){console.log(error)}) 
       },
 
     login: function (req, res){

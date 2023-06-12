@@ -16,15 +16,10 @@ const productsController = {
       }
 
       Producto.findByPk(id,relaciones)
-      .then(function(products){
-          
-          Comentario.findAll({where: [{id : products.id}] }, {order: [['createdAt', 'DESC']]})
-          .then(function(comment){
-            console.log(products.usuario.id, req.session.Usuario);
-              return res.render('product', {products : products, user: [products.usuario], comment:comment})
-          })
-          
-      }).catch(function(err) {
+      .then(function(data){
+        return res.render('product', { data:data, comments: data.comentario})   
+      })
+      .catch(function(err) {
           console.log(err);
       })
  
