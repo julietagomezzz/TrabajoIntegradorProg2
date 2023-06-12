@@ -20,7 +20,7 @@ id int unsigned primary key auto_increment,
 nombre varchar(250) not null,
 descripcion varchar(500) not null,
 usuarioId int unsigned not null,
-foreign key (usuario_id) references usuarios(id),
+foreign key (usuarioId) references usuarios(id),
 createdAt timestamp default current_timestamp,
 updatedAt timestamp default current_timestamp on update current_timestamp,
 deletedAt timestamp default current_timestamp
@@ -34,8 +34,8 @@ productoId int unsigned,
 createdAt timestamp default current_timestamp,
 updatedAt timestamp default current_timestamp on update current_timestamp,
 deletedAt timestamp default current_timestamp,
-foreign key (usuario_id) references usuarios(id),
-foreign key (producto_id) references productos(id)
+foreign key (usuarioId) references usuarios(id),
+foreign key (productoId) references productos(id)
 );
 
 insert into usuarios (id, email, contrasena, fotoDePerfil, fecha, dni)
@@ -45,7 +45,7 @@ values (default, 'ema@udesa.com', 'contrasena1', '/images/users/ema.jpeg', '2023
 (default, 'juanneira@udesa.com','contrasena4', '/images/users/juan.jpeg', '2023-1-1', 44444 ),
 (default, 'pilarmedico@udesa.com','contrasena5', '/images/users/pili.jpeg', '2023-1-1', 55555 );
 
-insert into productos (id, nombre, descripcion, usuario_id)
+insert into productos (id, nombre, descripcion, usuarioId)
 values (default, 'Shampoo Kerastase', 'Shampoo Kerastase super hidratante', 1),
 (default, 'Labial Dior', 'Labial Dior rojo humectante', 2),
 (default, 'Mascara Lancome', 'Máscara Lancome grandiosa', 3),
@@ -57,7 +57,7 @@ values (default, 'Shampoo Kerastase', 'Shampoo Kerastase super hidratante', 1),
 (default, 'Gloss Dior', 'Gloss super brillante', 4),
 (default, 'Set Labial Kylie Cosmetics', 'Set de labios color nude', 5);
 
-insert into comentarios (id, comentarios, usuario_id, producto_id)
+insert into comentarios (id, comentarios, usuarioId, productoId)
 values (default, '¿Tienen stock disponible?', 1, 1),
 (default, '¿Tienen envíos a todo el país?', 2, 1),
 (default, '¿Tienen envío gratis?', 3, 1),
