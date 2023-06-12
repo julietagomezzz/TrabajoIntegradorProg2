@@ -7,33 +7,47 @@
 	<!-- /Header -->
 
 
-
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Resultados de busqueda</h2>
-			</div>
-			<!-- Show the "ultimos" products -->
-			<% for( let i = 0; i < products.length; i++ ) { %>
-				<div class="col-12 col-sm-6 col-lg-3">
-					<section class="product-box">
-						<a href="/products/detalle/<%= products[i].id %>">
-							<figure class="product-box_image">
-								<img src=<%= products[i].cover %> alt=<%= products[i].nombre %>>
-							</figure>
-							<article class="product-box_data">
-								<h2><%= products[i].nombre %></h2>
-								<p><%= products[i].descripcion %></p>
-								<p>Comentarios: 5</p>
-							</article>
-						</a>
-					</section>
+	<% if(products.length >0) { %>
+		<div class="container products-wrapper">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="products-title">Resultados de busqueda</h2>
 				</div>
-			<% } %>
+
+				<% for( let i = 0; i < products.length; i++ ) { %>
+					<div class="col-12 col-sm-6 col-lg-3">
+						<section class="product-box">
+							<a href="/products/detalle/id<%= products[i].id %>">
+								<figure class="product-box_image">
+									<img src=<%= products[i].cover %> alt=<%= products[i].nombre %>>
+								</figure>
+								<article class="product-box_data">
+									<h2><%= products[i].nombre %></h2>
+									<p><%= products[i].descripcion %></p>
+									<p>Comentarios: 5</p>
+								</article>
+							</a>
+						</section>
+					</div>
+				<% } %>
+			</div>
 		</div>
-	</div>
-	<!-- /Novedades -->
+	<% } else { %>
+		<div class="container products-wrapper">
+		<div class="row">
+<div class="col-12">
+				<h2 class="products-title">No hay resultados de búsqueda</h2>
+
+
+				
+
+
+			</div>
+
+
+			</div>
+	<%} %>
+	 
 
 	<!-- footer -->
 	<%- include('./partials/footer.ejs')%>
