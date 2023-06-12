@@ -5,8 +5,11 @@ const productsController = require('../controllers/productsController');
 /* GET users listing. */
 router.get('/detalle', productsController.detalle);
 router.get('/add', productsController.add);
-
-
+router.post('/detalleCommentario', productsController.detalleComment);
+router.post('/add', productsController.postAdd);
+router.get('/edit', productsController.edit);
+router.post('/postEdit', productsController.Postedit);
+router.post('/postDelete', productsController.PostDelete);
 
 
 module.exports = router;

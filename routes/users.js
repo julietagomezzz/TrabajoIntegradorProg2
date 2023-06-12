@@ -4,7 +4,8 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/profile', usersController.profile);
-router.get('/editprofile', usersController.editprofile)
-
+router.get('/editprofile', usersController.editprofile);
+router.post('/postEditProfile', usersController.Posteditprofile);
+router.get('/logout', usersController.logout);
 
 module.exports = router;
