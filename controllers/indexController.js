@@ -114,34 +114,34 @@ const indexController = {
         },
 
       results: function (req, res){
-        let busqueda = req.query.search;
+        let busqueda = req.query.busqueda;
+        console.log('busqwue');
         console.log(busqueda);
-        Producto.findAll({
-            order: [['createdAt', 'DESC']],
-            include: [{association:'usuario'},{association:'comentario'}],
-            where: {nombre: {[op.like]:'%'+busqueda+'%'}},
-            where: {descripcion:{[op.like]:'%'+busqueda+'%'}}
-        })
+        let relaciones ={
+            include: [
+                {association:'usuario'},
+                {association:'comentario',  include: {association:"usuario"}}
+            ]
+        };
+        let criterio = {
+            where:{
+                [op.or]:[
+                    {nombre: {[op.like]:'%'+busqueda+'%'}},
+                    {descripcion:{[op.like]:'%'+busqueda+'%'}}
+                ]
+            },
+            order: [['createdAt', 'DESC']]
+        }
+        Producto.findAll(criterio, relaciones)
             .then(function(data){
-                return res.send(data);
+                //return res.send(data);
                 return res.render('search-results', {products: data});
             })
             .catch(function(error){
                 console.log(error);
            
         })
-        let relaciones = {
-            include: [
-                {association:"usuario"},
-                {association:"comentario" , include: {association:"usuario"}}
-            ]
-        }
-
-        Producto.findAll(relaciones)
-        .then(function(products){
-            return res.render('search-results', {products:products})
-        } )
-        .catch(function(error){console.log(error)})
+        
         
     }
 
