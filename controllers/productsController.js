@@ -6,14 +6,7 @@ const Comentario = db.Comentario;
 const productsController = {
 
   detalle:function(req,res) { 
-        let errors = {}
-
-        if (req.body.nombre == ""){
-            errors.message = "el campo nombre esta vacio";
-            res.locals.errors = errors
-            res.render('register')
-
-        }
+ 
       let id = req.params.id
       let relaciones = {
           include: [
@@ -27,6 +20,7 @@ const productsController = {
           
           Comentario.findAll({where: [{id : products.id}] }, {order: [['createdAt', 'DESC']]})
           .then(function(comment){
+            console.log(products.usuario.id, req.session.Usuario);
               return res.render('product', {products : products, user: [products.usuario], comment:comment})
           })
           

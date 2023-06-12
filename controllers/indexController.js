@@ -162,6 +162,19 @@ const indexController = {
              }
             
             }
+            Usuario.findAll(criterio)
+
+            .then(function(user){
+
+                
+
+                return res.render('searchresults-user', {user : user})
+                            
+                        
+                         
+            }).catch(function(err) {
+                console.log(err);
+            })    
         }
 
 

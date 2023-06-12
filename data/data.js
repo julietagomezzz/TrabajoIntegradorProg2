@@ -30,7 +30,7 @@ data = {
         },
         {
             nombre: 'Desmaquillante Lancome',
-            cover: '/images/products/desmaquillante.webp',
+            cover: '/images/products/desmaquillante.jpg',
             descripcion: 'Desmaquillante Lancome super suave',
             fechacarga: '13/03/2023',
             id: 5,
@@ -44,7 +44,7 @@ data = {
         },
         {
             nombre: 'Rubor Mac',
-            cover: '/images/products/rubormac.avif',
+            cover: '/images/products/rubormac.jpg',
             descripcion: 'Rubor Mac super pigmentado',
             fechacarga: '02/04/2023',
             id: 7,

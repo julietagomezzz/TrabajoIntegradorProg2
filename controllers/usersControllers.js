@@ -14,14 +14,15 @@ const usersController = {
             ]
         })
         .then(function(user){
+
             Producto.findAll({where:[{usuario_id : id }]})
             .then(function(products){
                 return res.render('profile',{user:user, products:products})
 
             })
             
-        }).catch(function(err) {
-            console.log(err);
+        }).catch(function(error) {
+            console.log(error);
         })
         return res.render('profile', {users:data.user, products: data.products})
     },
@@ -31,8 +32,8 @@ const usersController = {
         .then(function(user){
             return res.render('profile-edit', {user: user})
              
-        }).catch(function(err) {
-            console.log(err);
+        }).catch(function(error) {
+            console.log(error);
         })
         return res.render('profile-edit', {user:data.user})
         
