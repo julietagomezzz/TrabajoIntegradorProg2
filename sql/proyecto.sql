@@ -11,7 +11,8 @@ fecha date,
 dni int unsigned,
 createdAt timestamp default current_timestamp,
 updatedAt timestamp default current_timestamp on update current_timestamp,
-deletedAt timestamp default current_timestamp
+deletedAt timestamp default current_timestamp,
+nombre varchar (200) not null
 );
 
 
@@ -20,7 +21,6 @@ id int unsigned primary key auto_increment,
 nombre varchar(250) not null,
 descripcion varchar(500) not null,
 usuarioId int unsigned not null,
-cover text,
 foreign key (usuarioId) references usuarios(id),
 createdAt timestamp default current_timestamp,
 updatedAt timestamp default current_timestamp on update current_timestamp,
@@ -45,6 +45,9 @@ values (default, 'ema@udesa.com', 'contrasena1', '/images/users/ema.jpeg', '2023
 (default, 'valenkolek@udesa.com', 'contrasena3', '/images/users/valen.png', '2023-1-1', 33333),
 (default, 'juanneira@udesa.com','contrasena4', '/images/users/juan.jpeg', '2023-1-1', 44444 ),
 (default, 'pilarmedico@udesa.com','contrasena5', '/images/users/pili.jpeg', '2023-1-1', 55555 );
+
+
+
 
 insert into productos (id, nombre, descripcion, usuarioId)
 values (default, 'Shampoo Kerastase', 'Shampoo Kerastase super hidratante', 1),
