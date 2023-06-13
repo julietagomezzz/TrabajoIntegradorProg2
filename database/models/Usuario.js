@@ -6,6 +6,10 @@ module.exports = function (sequelize, dataTypes) {
             primaryKey : true,
             type: dataTypes.INTEGER
         },
+        nombre:{
+                type: dataTypes.STRING,
+                allowNull: false,
+        },
         email: {
             type: dataTypes.STRING,
             allowNull: false,

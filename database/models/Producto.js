@@ -10,6 +10,9 @@ module.exports = function (sequelize, dataTypes) {
             type: dataTypes.STRING,
             allowNull:false
         },
+        cover: {
+            type: dataTypes.STRING
+        },
         descripcion: {
             type: dataTypes.STRING,
             allowNull:false

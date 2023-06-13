@@ -12,14 +12,17 @@
 	
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"> <%= data.nombre %></h2> 
+			<h2 class="products-title"> <%= data.nombre %></h2> <br>
 			<p class="product-detail-description">
 				<a href="/products/add">Editar</a>
 			</p>
+			<h3> Publicado por : <%= data.usuario.nombre %></h3>
+
 		</div>
 		<div class="product-detail">
+			
 			<div class="row">
-
+					
 				<article class="col-12 col-lg-8 product-detail-info">
 					<img src=<%= data.cover %> alt="" class="product-detail-img">
 					<p class="product-detail-description">
@@ -33,7 +36,7 @@
 								<img src="<%= data.comentario[i].usuario.fotoDePerfil %>" alt="">
 								<div class="data">
 									<p class="user">
-									<strong> <a href="/users/profile"><%= data.comentario[i].usuario.nombreUsuario %> </a> </strong>
+									<strong> <a href="/users/profile"><%= data.comentario[i].usuario.nombre %> </a> </strong>
 									<%= data.comentario[i].comentarios %>
 								</div>
 							</article>
