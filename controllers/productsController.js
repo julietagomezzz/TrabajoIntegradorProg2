@@ -52,6 +52,7 @@ const productsController = {
       let producto = {
           nombre:req.body.nombre, 
           descripcion:req.body.descripcion, 
+          cover: req.body.cover,
           usuarioId:  req.session.Usuario.id
       }
       
