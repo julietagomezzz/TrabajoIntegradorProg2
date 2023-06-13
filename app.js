@@ -26,10 +26,33 @@ app.use('/products', productsRouter);
 
 // agrego esto
 
+app.use(function(req, res, next) {
+  if (req.cookies.usuario != undefined && req.session.Usuario == undefined) {
+    let idUsuarioEnCookie = req.cookies.usuario;
+    Usuario.findByPk(idUsuarioEnCookie)
+      .then((user) => {
+
+        req.session.Usuario = user.dataValues;
+        res.locals.username  = user.dataValues;
+
+        return next();
+        
+      }).catch((err) => {
+        console.log(err);
+        return next();
+      });
+  } else {
+    return next();
+  }
+
+  }
+);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {

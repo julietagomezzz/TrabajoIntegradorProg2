@@ -40,6 +40,7 @@ const indexController = {
                     return res.redirect('/')
                 }
                 else{
+                    res.send(results)
                     let errors = {};
                     errors.message = "El usuario o la contraseña es incorrecto"
                     res.locals.errors = errors;
@@ -96,6 +97,7 @@ const indexController = {
                 
                 let passEncriptada= bcryptjs.hashSync(req.body.contrasena,req.body.contrasena.length);
                 let usuario = {
+                    nombre:req.body.nombre,
                     email:req.body.email, //allowNull: false
                     contrasena:passEncriptada, //allowNull: false
                     fotoDePerfil: req.body.fotoDePerfil,
