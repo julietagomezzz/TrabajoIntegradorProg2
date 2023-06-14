@@ -116,12 +116,12 @@ const indexController = {
 
       results: function (req, res){
         let busqueda = req.query.busqueda;
-        console.log('busqwue');
+        console.log('busqueda');
         console.log(busqueda);
         let relaciones ={
             include: [
                 {association:'usuario'},
-                {association:'comentario',  include: {association:"usuario"}}
+                {association:'comentario'}
             ]
         };
         let criterio = {

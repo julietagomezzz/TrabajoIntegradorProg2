@@ -12,7 +12,7 @@
 	<section class="info-usuario container products-wrapper">
 		<div class="row">
 			<div class="img-container offset-3 col-2">
-				<img src= "<%= data.user.foto %>" alt="" class="foto-perfil">
+				<img src= "<%= data.user.fotoDePerfil %>" alt="foto de perfil" class="foto-perfil">
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
@@ -44,120 +44,23 @@
 				<h2 class="products-title">Mis productos</h2>
 			</div>
 			<!-- Show mis productos -->
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/products/detalle">
-						<figure class="product-box_image">
-							<img src=<%= products[0].cover %> alt=<%= products[0].nombre %>>
-						</figure>
-						<article class="product-box_data">
-							<h2><%= products[0].nombre %></h2>
-							<p><%= products[0].descripcion %></p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/products/detalle">
-						<figure class="product-box_image">
-							<img src=<%= products[1].cover %> alt=<%= products[1].nombre %> >
-						</figure>
-						<article class="product-box_data">
-							<h2><%= products[1].nombre %> </h2>
-							<p><%= products[1].descripcion %> </p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/products/detalle">
-						<figure class="product-box_image">
-							<img src=<%= products[2].cover %>  alt=<%= products[2].nombre %> >
-						</figure>
-						<article class="product-box_data">
-							<h2><%= products[2].nombre %> </h2>
-							<p><%= products[2].descripcion %> </p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/products/detalle">
-						<figure class="product-box_image">
-							<img src=<%= products[3].cover %>  alt=<%= products[3].nombre %>>
-						</figure>
-						<article class="product-box_data">
-							<h2> <%= products[3].nombre %></h2>
-							<p><%= products[3].descripcion %></p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/products/detalle">
-						<figure class="product-box_image">
-							<img src=<%= products[4].cover %>  alt=<%= products[4].nombre %>>
-						</figure>
-						<article class="product-box_data">
-							<h2> <%= products[4].nombre %></h2>
-							<p><%= products[4].descripcion %></p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/producs/detalle">
-						<figure class="product-box_image">
-							<img src=<%= products[5].cover %>  alt=<%= products[5].nombre %>>
-						</figure>
-						<article class="product-box_data">
-							<h2> <%= products[5].nombre %></h2>
-							<p><%= products[5].descripcion %></p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/products/detalle">
-						<figure class="product-box_image">
-							<img src=<%= products[6].cover %>  alt=<%= products[6].nombre %>>
-						</figure>
-						<article class="product-box_data">
-							<h2> <%= products[6].nombre %></h2>
-							<p><%= products[6].descripcion %></p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/products/detalle">
-						<figure class="product-box_image">
-							<img src=<%= products[7].cover %>  alt=<%= products[7].nombre %>>
-						</figure>
-						<article class="product-box_data">
-							<h2> <%= products[7].nombre %></h2>
-							<p><%= products[7].descripcion %></p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-		</div>
-	</div>
+			<% for (let i = 0; i < products.length; i++) {  %>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+				  		<a href="/products/detalle/id/<%= products[i].id %>"> 
+					<figure class="product-box_image">
+						<img src= '<%= products[i].cover %>' alt=<%= products[i].nombre%> >
+					</figure>
+					<article class="product-box_data">
+						<h2> <%= products[i].nombre %> </h2>
+						<p> <%= products[i].descripcion %> </p>
+						<p> Comentarios:<%= products[i].comentarios %> </p>
+					</article>
+						</a>
+					</section>
+			  </div>
+				
+			  <% }  %>
 	<!-- /Mis productos -->
 
 

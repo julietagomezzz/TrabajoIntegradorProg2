@@ -13,7 +13,7 @@ const usersController = {
         Usuario.findByPk(id, {
             include: [
                 {association:"producto"},
-                {association:"comentario"}
+                {association:"comentario"},
             ]
         })
         .then(function(user){
