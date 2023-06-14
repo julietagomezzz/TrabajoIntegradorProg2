@@ -1,3 +1,4 @@
+const data = require('../data/data')
 const db = require('../database/models')
 const Producto = db.Producto;
 const Usuario = db.Usuario;
@@ -6,18 +7,20 @@ const Comentario = db.Comentario;
 
 const usersController = {
     profile: function(req,res){
+        
+        let id = req.params.id
+        
         Usuario.findByPk(id, {
             include: [
                 {association:"producto"},
                 {association:"comentario"}
-
             ]
         })
         .then(function(user){
 
-            Producto.findAll({where:[{usuario_id : id }]})
+            Producto.findAll({where:[{usuarioId: id }]})
             .then(function(products){
-                return res.render('profile',{user:user, products:products})
+                return res.render('profile',{user: user, products: products})
 
             })
             

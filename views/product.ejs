@@ -45,7 +45,7 @@
 								<img src="<%= data.comentario[i].usuario.fotoDePerfil %>" alt="">
 								<div class="data">
 									<p class="user">
-									<strong> <a href="/users/profile"><%= data.comentario[i].usuario.nombre %> </a> </strong>
+									<strong> <a href="/users/profile/<%= data.comentario[i].usuario.id %>"> <%= data.comentario[i].usuario.nombre %> </a> </strong>
 									<%= data.comentario[i].comentarios %>
 								</div>
 							</article>
