@@ -106,7 +106,7 @@ const productsController = {
 
 
   }  ,
-  PostDelete: function (req,res) {
+  Deleted: function (req,res) {
 
       Producto.findByPk(req.params.id, {
           include: [
@@ -128,7 +128,7 @@ const productsController = {
           
           } else {
               let errors = {}
-              errors.message  = "No puede eliminar. Este producto no le pertenece";
+              errors.message  = "No puede eliminar el producto. No le pertenece";
               res.locals.errors = errors;
               return res.render('product', {products:products})
           }

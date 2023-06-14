@@ -17,11 +17,8 @@
 			<!-- Show the "ultimos" products -->
 			<div class="container">
 
-             <% if (locals.errors) { %> 
-					<h2 class =  "footer-data h2"> <%= locals.errors.message %>  </h2>
-					 
-					<% } %> 
-				<form action="/products/edit/ <%=product.id %> " method="POST" class="formulario">
+
+				<form action="/products/edit/ <%=data.id %> " method="POST" class="formulario">
 				<ul> 
 					<li><label class="form-label" for="">Edite la imagen: </label></li> 
 					<li><input class="form-label" type="text" name="cover" value="" ></li>
@@ -35,6 +32,11 @@
 				</ul>
 
 				</form>
+
+				<% if (locals.errors) { %> 
+					<h2 class =  "footer-data h2"> <%= locals.errors.message %>  </h2>
+					 
+					<% } %> 
 
                
 			</div>

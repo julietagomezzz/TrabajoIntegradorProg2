@@ -9,7 +9,7 @@ router.post('/detalleCommentario', productsController.detalleComment);
 router.post('/add', productsController.postAdd);
 router.get('/edit', productsController.edit);
 router.post('/postEdit', productsController.Postedit);
-router.post('/postDelete', productsController.PostDelete);
+router.post('/Deleted', productsController.Deleted);
 
 
 module.exports = router;

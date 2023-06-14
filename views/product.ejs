@@ -14,9 +14,18 @@
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"> <%= data.nombre %></h2> <br>
 			<p class="product-detail-description">
-				<a href="/products/add">Editar</a>
+				<a href="/products/edit">Editar</a>
 			</p>
+			<form action="/product/borrar" method="post">
+				<input name="id" type="text" value="<%= data.id %>" hidden>
+				<button class="borrar" type="submit">
+					Borrar <i class="fas fa-sign-in-alt"></i>
+				</button>
+			</form> 
 			<h3> Publicado por : <%= data.usuario.nombre %></h3>
+			<% if (locals.errors)  { %>
+				<p style="color: rgb(0, 0, 0);"> <%= locals.errors.message %></p>
+			<% } %>
 
 		</div>
 		<div class="product-detail">
