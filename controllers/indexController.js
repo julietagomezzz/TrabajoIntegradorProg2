@@ -1,4 +1,4 @@
-const products = require('../data/data')
+const data = require('../data/data')
 const db = require('../database/models')
 const bcryptjs = require('bcryptjs')
 const Producto = db.Producto;

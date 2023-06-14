@@ -1,7 +1,7 @@
 <%- include('./partials/head.ejs')%>
 <body>
 	<!-- Header -->
-<% if (locals.username != undefined) { %>
+	<% if (locals.username != undefined) { %>
 			<%- include('./partials/headerLogueado.ejs') %>  
 	<% } else{%>
 			<%- include('./partials/header.ejs') %>  
@@ -162,6 +162,7 @@
 
 
 	<!-- footer -->
+
 	<%- include('./partials/footer.ejs')%>
 
 	<!-- /footer -->
