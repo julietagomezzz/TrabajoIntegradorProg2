@@ -11,9 +11,9 @@
 				<h2 class="products-title">Editar mi perfil</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> 
+			<h2 class="container"> 
 				
-				<form action="/users/profile" method="get">
+				<form action="/users/profile/<%= user.id %>" method="POST" class="formulario">
 					<h5>Email: <input type="email" name="" id=""></h5>
 					<h5>Usuario: <input type="text"></h5>
 					<h5>Contraseña: <input type="password"></h5>
