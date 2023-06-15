@@ -136,12 +136,21 @@ const productsController = {
       })
       .catch(function(err) {
           console.log(err);
-      })
-
-
-
-      
-  }
+      })    
+  },
+  /*crearComentario: function(req,res){
+    Comentario.create({
+        usuarioId: req.session.idUsuario,
+        productoId:req.params.productoId,
+        comentario: req.body.comentarios
+    })
+    .then((data) => {
+        return res.redirect('/')
+    })
+    .catch((error) => {
+        res.send(error)
+    })
+  }*/
 
 }
       

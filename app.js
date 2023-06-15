@@ -47,6 +47,16 @@ app.use(function(req, res, next) {
 
   }
 );
+/*app.use(session({
+  secret: 'nuestro mensaje secreto',
+  resave: false,
+  saveUninitialized: true
+}))
+app.use(function(req,res,next){
+  res.locals.user = req.session.user;
+  res.locals.idUsuario = req.session.idUsuario
+  next()
+})*/
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
