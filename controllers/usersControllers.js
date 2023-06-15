@@ -10,7 +10,20 @@ const usersController = {
         
         let id = req.params.id
         
-        Usuario.findByPk(id, {
+        let relaciones = {
+            include: [
+                {association:"comentario"},
+                {association:"producto", include:[{association:'comentario'}]}
+        ]}
+        Usuario.findByPk(id, relaciones)
+        
+        .then(function (data) {
+            return res.render('profile', {data: data})
+       
+        }).catch(function (error) {
+            console.log(error);
+        })
+       /* Usuario.findByPk(id, {
             include: [
                 {association:"producto"},
                 {association:"comentario"},
@@ -27,7 +40,7 @@ const usersController = {
         }).catch(function(error) {
             console.log(error);
         })
-        return res.render('profile', {users:data.user, products: data.products})
+        return res.render('profile', {users:data.user, products: data.products})*/
     },
     editprofile: function(req,res){
         Usuario.findByPk(req.params.id)
