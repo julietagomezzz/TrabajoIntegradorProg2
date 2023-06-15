@@ -1,3 +1,4 @@
+const data = require('../data/data')
 const db = require('../database/models')
 const Producto = db.Producto;
 const Usuario = db.Usuario;
@@ -138,11 +139,11 @@ const productsController = {
           console.log(err);
       })    
   },
-  /*crearComentario: function(req,res){
+  agregarComentario: function(req,res){
     Comentario.create({
-        usuarioId: req.session.idUsuario,
+        usuarioId: req.session.usuarioId,
         productoId:req.params.productoId,
-        comentario: req.body.comentarios
+        comentario: req.body.comentario
     })
     .then((data) => {
         return res.redirect('/')
@@ -150,7 +151,7 @@ const productsController = {
     .catch((error) => {
         res.send(error)
     })
-  }*/
+  }
 
 }
       

@@ -23,24 +23,7 @@ const usersController = {
         }).catch(function (error) {
             console.log(error);
         })
-       /* Usuario.findByPk(id, {
-            include: [
-                {association:"producto"},
-                {association:"comentario"},
-            ]
-        })
-        .then(function(user){
-
-            Producto.findAll({where:[{usuarioId: id }]})
-            .then(function(products){
-                return res.render('profile',{user: user, products: products})
-
-            })
-            
-        }).catch(function(error) {
-            console.log(error);
-        })
-        return res.render('profile', {users:data.user, products: data.products})*/
+        
     },
     editprofile: function(req,res){
         Usuario.findByPk(req.params.id)

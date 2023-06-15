@@ -3,7 +3,8 @@ var router = express.Router();
 const productsController = require('../controllers/productsController');
 
 /* GET users listing. */
-//router.post('/detalle/id/:id', productsController.crearComentario)
+
+router.post('/detalle/id/:id', productsController.agregarComentario)
 router.get('/detalle/id/:id', productsController.detalle);
 router.get('/add', productsController.add);
 router.post('/detalleCommentario', productsController.detalleComment);
