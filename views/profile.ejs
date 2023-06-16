@@ -1,7 +1,7 @@
 <%- include('./partials/head.ejs')%>
 <body>
 	<!-- Header -->
-	<% if (locals.username != undefined) { %>
+	<% if (locals.user != undefined) { %>
 			<%- include('./partials/headerLogueado.ejs') %>  
 	<% } else{%>
 			<%- include('./partials/header.ejs') %>  
@@ -58,11 +58,9 @@
 					</article>
 						</a>
 					</section>
-			  </div>
-				
-			  <% }  %>
+			  	</div>
+			<% }  %>
 	<!-- /Mis productos -->
-
 
 	<!-- footer -->
 

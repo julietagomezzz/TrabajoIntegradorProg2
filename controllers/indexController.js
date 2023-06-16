@@ -26,7 +26,6 @@ const indexController = {
             return res.render("login")
         }
       },
-
     loginPost: function(req,res){
         Usuario.findOne(
             {where: [{email: req.body.email}]}
@@ -59,11 +58,9 @@ const indexController = {
             }
         })
     },
-
     register: function (req, res){
           return res.render('register')
       },
-
     postRegister: function(req,res) {
 
         console.log(req.body.email)
@@ -90,7 +87,6 @@ const indexController = {
                     errors.message  = "La contraseña esta vacía";
                     res.locals.errors = errors;
                     res.render('register')
-        
                 }
 
                  else if (req.body.contrasena.length < 3) {
@@ -115,10 +111,8 @@ const indexController = {
 
             }).catch(function(error) {
                 console.log(error);
-            })
-              
+            })   
         },
-
       results: function (req, res){
         let busqueda = req.query.busqueda;
         console.log('busqueda');
@@ -145,45 +139,29 @@ const indexController = {
             })
             .catch(function(error){
                 console.log(error);
-           
-        })
-        
-        
+        })    
     },
     searchresultsUser: function(req,res) {
         let busqueda = req.query.search;
         let criterio = {
             where: {
                 [op.or]: [{
-                      nombre: {
+                      nombre:{
                          [op.like]: "%"+busqueda+"%"
-                      }
-                   },
+                            }
+                        },
                    {
-                      email: {
-                         [op.like]: "%"+busqueda+"%"
-                      }
-                   }
-                ]
-             }
-            
-            }
+                    email:{
+                        [op.like]: "%"+busqueda+"%"
+                        }
+                   }]}}
             Usuario.findAll(criterio)
 
             .then(function(user){
-
-                
-
-                return res.render('searchresults-user', {user : user})
-                            
-                        
-                         
+                return res.render('searchresults-user', {user : user})         
             }).catch(function(err) {
                 console.log(err);
             })    
-        }
-
-
-}
+        }}
 
 module.exports = indexController;

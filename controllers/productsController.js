@@ -3,6 +3,7 @@ const db = require('../database/models')
 const Producto = db.Producto;
 const Usuario = db.Usuario;
 const Comentario = db.Comentario;
+const user = data.user;
 
 const productsController = {
 
@@ -35,16 +36,13 @@ const productsController = {
       }
       Comentario.create(comentario)
       Producto.findByPk(req.params.id)
-      .then(function(products){
+      .then(function(data){
           return res.redirect(`/products/detalle/id/${products.id}`)
           
-      }).catch(function(err) {
-          console.log(err);
+      }).catch(function(error) {
+          console.log(error);
       })
-      
-
   },
-
   add: function(req,res) {
       res.render('product-add')
 
@@ -54,13 +52,12 @@ const productsController = {
           nombre:req.body.nombre, 
           descripcion:req.body.descripcion, 
           cover: req.body.cover,
-          usuarioId:  req.session.Usuario.id
+          usuarioId:  req.session.usuarioId
       }
       
       Producto.create(producto)
       return res.redirect('/')
   },
-
   edit: function(req,res) {
       Producto.findByPk(req.params.id)
 
@@ -72,27 +69,23 @@ const productsController = {
       })
       
   },
-
-  Postedit: function (req,res) {
+  postEdit: function (req,res) {
 
       Producto.findByPk(req.params.id)
 
       .then(function(products){
 
-          if (req.session.Usuario.id == products.usuarioId) {
+          if (req.session.user.id == products.usuarioId) {
 
-              let producto_edit = {
-                  nombre:req.body.nombre, 
-                  descripcion:req.body.descripcion, 
-                  cover:req.body.cover, 
-                  usuarioId:  req.session.Usuario.id}
+              let productoEditado = {
+                  nombre: req.body.nombre, 
+                  descripcion: req.body.descripcion, 
+                  cover: req.body.cover, 
+                  usuarioId: req.session.usuarioId}
       
-               
-              Producto.update(producto_edit, {where: [{id: req.params.id}]})
+              Producto.update(productoEditado, {where: [{id: req.params.id}]})
               return res.redirect('/') 
                   
-              
-
           } else {
               let errors = {}
               errors.message  = "No puede editar. Este producto no le pertenece";
@@ -101,13 +94,11 @@ const productsController = {
           }
 
       })
-      .catch(function(err) {
-          console.log(err);
+      .catch(function(error) {
+          console.log(error);
       })
-
-
   }  ,
-  Deleted: function (req,res) {
+  postDelete: function (req,res) {
 
       Producto.findByPk(req.params.id, {
           include: [
@@ -116,9 +107,9 @@ const productsController = {
           ]
       } )
 
-      .then(function(products){
+      .then(function(data){
 
-          if (req.session.Usuario.id == products.usuarioId) {
+          if (req.session.Usuario.id == data.usuarioId) {
 
               Producto.destroy({where: [{ id: req.params.id}]})
               .then(function(coment) {
@@ -126,14 +117,12 @@ const productsController = {
                   return res.redirect('/') 
               })
                   
-          
           } else {
               let errors = {}
               errors.message  = "No puede eliminar el producto. No le pertenece";
               res.locals.errors = errors;
-              return res.render('product', {products:products})
+              return res.render('product', {data:data})
           }
-
       })
       .catch(function(err) {
           console.log(err);

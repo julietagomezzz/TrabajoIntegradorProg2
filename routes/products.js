@@ -10,8 +10,8 @@ router.get('/add', productsController.add);
 router.post('/detalleCommentario', productsController.detalleComment);
 router.post('/add', productsController.postAdd);
 router.get('/edit', productsController.edit);
-router.post('/postEdit', productsController.Postedit);
-router.post('/Deleted', productsController.Deleted);
+router.post('/postEdit', productsController.postEdit);
+router.post('/postdelete', productsController.postDelete);
 
 
 module.exports = router;

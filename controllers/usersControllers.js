@@ -13,44 +13,51 @@ const usersController = {
         let relaciones = {
             include: [
                 {association:"comentario"},
-                {association:"producto", include:[{association:'comentario'}]}
+                {association:"producto"}
         ]}
         Usuario.findByPk(id, relaciones)
         
         .then(function (data) {
+            console.log(data);
             return res.render('profile', {data: data})
        
         }).catch(function (error) {
             console.log(error);
         })
-        
+
     },
     editprofile: function(req,res){
-        Usuario.findByPk(req.params.id)
-
-        .then(function(user){
-            return res.render('profile-edit', {user: user})
+        
+        let id = req.params.id
+        
+        Usuario.findByPk(id)
+        .then(function(data){
+            return res.render('profile-edit', {user: data})
              
         }).catch(function(error) {
             console.log(error);
         })
-        return res.render('profile-edit', {user:data.user})
-        
+         
     },
     Posteditprofile: function (req,res) {
 
-        let profile_edit = {
-            email:req.body.email, 
-            contrasena:req.body.contrasena, 
-            fotoDeperfil:req.body.fotoDePerfil, 
-            fecha:  req.body.fecha,
+        if (req.session.user != undefined){ 
+        let profileEdit = {
+            email: req.body.email, 
+            contrasena: req.body.contrasena, 
+            fotoDeperfil: req.body.fotoDePerfil, 
+            fecha: req.body.fecha,
             dni: req.body.dni
         }
 
-         
-        Usuario.update(profile_edit, {where: [{id: req.params.id}]})
-        return res.redirect('/') 
- 
+        Usuario.update(profileEdit, {where: [{id: req.params.user.id}]})
+        .then(function (products) {
+            res.locals.user.email = req.body.email
+            return res.redirect('/users/profile' + req.sessio.user.id)
+        })
+        .catch(function (error) {
+            console.log(error);
+        })}
     },
     logout: function(req,res) {
         req.session.destroy()

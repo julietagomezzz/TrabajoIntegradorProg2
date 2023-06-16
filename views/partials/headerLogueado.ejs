@@ -38,10 +38,11 @@
 
   
         <ul class="right-navbar">
-           <li><a href="/users/profile/<%= user.id %>"> <!-- Hay que arreglar esto-->
+           <li><a href="/users/profile/<%= data.id %>"> <!-- Hay que arreglar esto-->
             <%= data.user %> <i class="fas fa-user"></i>
             </a>
           </li>
+          
           <li>
             
             <form action="/users/logout" method="post">
@@ -55,4 +56,4 @@
         </ul>
       </nav>
     </div>
-  </header>
+</header>
