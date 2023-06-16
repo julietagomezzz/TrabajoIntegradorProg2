@@ -19,7 +19,12 @@ const indexController = {
       },
 
     login: function (req, res){
-          return res.render('login')
+        if(req.session.user != undefined) { 
+          return res.redirect('/')
+        }
+        else {
+            return res.render("login")
+        }
       },
 
     loginPost: function(req,res){
