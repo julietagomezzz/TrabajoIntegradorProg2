@@ -25,10 +25,14 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }))
+
+
 app.use(function(req,res,next){
-  res.locals.user = req.session.user;
-  res.locals.usuarioId = req.session.usuarioId
-  next()
+  if (req.session.usuario != undefined) {
+    res.locals.usuario = req.session.usuario;
+    return next()
+  }
+  return next();
 })
 
 app.use('/', indexRouter);

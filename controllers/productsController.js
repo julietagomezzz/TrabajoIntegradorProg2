@@ -19,7 +19,7 @@ const productsController = {
 
       Producto.findByPk(id,relaciones)
       .then(function(data){
-        return res.render('product', { data:data})   
+        return res.render('product', {usuario:data.usuario, comentarios:data.comentario, data: data})   
       })
       .catch(function(err) {
           console.log(err);
@@ -129,19 +129,23 @@ const productsController = {
       })    
   },
   agregarComentario: function(req,res){
-    Comentario.create({
-        usuarioId: req.session.usuarioId,
-        productoId:req.params.productoId,
-        comentario: req.body.comentario
-    })
-    .then((data) => {
-        return res.redirect('/')
-    })
-    .catch((error) => {
-        res.send(error)
-    })
-  }
+  
+   
+    let errors = {};
+    if (req.body.comment == ""){ 
+        errors.message = "El campo de comentario esta vacio"
+        res.locals.errors = errors;
+        res.render("product");
+    }else {
+        let comentario = {
+            usuarioId: req.session.Usuario.id,
+            productoId:req.params.id,
+            comentarios: req.body.comentario
+        } 
 
+        Comentario.create(comentario);
+        res.redirect("/")
+    }}
 }
       
 module.exports = productsController;

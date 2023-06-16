@@ -31,20 +31,21 @@ const indexController = {
             {where: [{email: req.body.email}]}
             )
         .then(function (results) {
-
-            if(results){
-
-                let check = bcryptjs.compareSync(req.body.password, results.contrasena) 
+            // res.send(results.dataValues)
+            if(results != null){
                 
+                let check = bcryptjs.compareSync(req.body.password, results.contrasena) 
+                // res.send({value:check})
                 if(check){
-                    req.session.Usuario = results.dataValues; 
+                    req.session.usuario = results.dataValues; 
                     if (req.body.recordarme){
+                        // res.send({id:req.body.recordarme})
                         res.cookie('usuario', results.dataValues.id, {maxAge: 1000 * 60 * 5})
                     }
                     return res.redirect('/')
                 }
                 else{
-                    res.send(results)
+                    
                     let errors = {};
                     errors.message = "El usuario o la contraseña es incorrecto"
                     res.locals.errors = errors;
@@ -57,6 +58,11 @@ const indexController = {
                     return res.render("login")
             }
         })
+    },
+    headerLogueado: function(req, res){
+        return res.render('headerLogueado')
+  
+
     },
     register: function (req, res){
           return res.render('register')

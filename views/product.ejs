@@ -22,7 +22,7 @@
 					Borrar <i class="fas fa-sign-in-alt"></i>
 				</button>
 			</form> 
-			<h3> Publicado por : <%= data.usuario.nombre %></h3>
+			<h3> Publicado por : <%= usuario.nombre %></h3>
 			<% if (locals.errors)  { %>
 				<p style="color: rgb(0, 0, 0);"> <%= locals.errors.message %></p>
 			<% } %>
@@ -33,24 +33,19 @@
 			<div class="row">
 					
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src=<%= data.cover %> alt="" class="product-detail-img">
+					<img src="<%= data.cover %>" alt="" class="product-detail-img">
 					<p class="product-detail-description">
 						<%= data.descripcion%> </p>
 				</article>
 
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						<% for( let i = 0; i < data.comentario.length; i++ ) { %>
-							<article>
-								<img src="<%= data.comentario[i].usuario.fotoDePerfil %>" alt="">
-								<div class="data">
-									<p class="user">
-									<strong> <a href="/users/profile/<%= data.comentario[i].usuario.id %>"> <%= data.comentario[i].usuario.nombre %> </a> </strong>
-									<%= data.comentario[i].comentarios %>
-								</div>
-							</article>
-						
+					
+					
+						<% for( let index = 0; index < comentarios.length; index++ ) { %>
+							<img src="<%= comentarios[index].usuario.fotoDePerfil %>" alt="">
 						<% } %>
+						
 					</section>
 					<form class="form" action="" method="post">
 						<input class="form-input" type="text" name="comentario" value="" placeholder="Agregar comentario">

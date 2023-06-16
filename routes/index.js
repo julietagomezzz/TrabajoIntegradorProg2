@@ -3,6 +3,7 @@ var router = express.Router();
 const indexController = require('../controllers/indexController');
 
 /* GET home page. */
+router.get('/headerLogueado', indexController.headerLogueado)
 router.get('/', indexController.index)
 router.get('/login', indexController.login)
 router.post('/login', indexController.loginPost)
