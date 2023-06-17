@@ -7,7 +7,7 @@ router.get('/profile/:id', usersController.profile);
 router.post('/profile', usersController.profile);
 router.get('/editprofile', usersController.editprofile);
 router.post('/postEditProfile', usersController.Posteditprofile);
-router.get('/logout', usersController.logout);
+router.post('/logout', usersController.logout);
 
 
 

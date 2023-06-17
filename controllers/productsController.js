@@ -19,6 +19,7 @@ const productsController = {
 
       Producto.findByPk(id,relaciones)
       .then(function(data){
+           // return res.send(data)
         return res.render('product', {usuario:data.usuario, comentarios:data.comentario, data: data})   
       })
       .catch(function(err) {
@@ -26,38 +27,31 @@ const productsController = {
       })
  
   },
-  detalleComment: function(req,res) {
-
-      let comentario = {
-          comentario:req.body.comentario, 
-          usuarioId: req.session.Usuario.id, 
-          productoId: req.params.id, 
-          
-      }
-      Comentario.create(comentario)
-      Producto.findByPk(req.params.id)
-      .then(function(data){
-          return res.redirect(`/products/detalle/id/${products.id}`)
-          
-      }).catch(function(error) {
-          console.log(error);
-      })
-  },
   add: function(req,res) {
       res.render('product-add')
 
   },
   postAdd: function(req,res) {
-      let producto = {
-          nombre:req.body.nombre, 
-          descripcion:req.body.descripcion, 
+    if (req.session.usuario != undefined) { 
+    let producto = {
+          nombre: req.body.nombre, 
+          descripcion: req.body.descripcion, 
           cover: req.body.cover,
-          usuarioId:  req.session.usuarioId
-      }
-      
+          usuarioId: req.session.usuarioId
+      } 
+    
       Producto.create(producto)
-      return res.redirect('/')
-  },
+      .then(function (data) {
+        res.redirect('/')
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+    }
+    else{ 
+      res.redirect('/login')  
+      
+  }},
   edit: function(req,res) {
       Producto.findByPk(req.params.id)
 
@@ -71,11 +65,11 @@ const productsController = {
   },
   postEdit: function (req,res) {
 
-      Producto.findByPk(req.params.id)
+      Producto.findByPk(req.body.id)
 
-      .then(function(products){
+      .then(function(data){
 
-          if (req.session.user.id == products.usuarioId) {
+          if (req.session.user.id == data.usuarioId) {
 
               let productoEditado = {
                   nombre: req.body.nombre, 
@@ -128,24 +122,21 @@ const productsController = {
           console.log(err);
       })    
   },
-  agregarComentario: function(req,res){
-  
-   
-    let errors = {};
-    if (req.body.comment == ""){ 
-        errors.message = "El campo de comentario esta vacio"
-        res.locals.errors = errors;
-        res.render("product");
-    }else {
-        let comentario = {
-            usuarioId: req.session.Usuario.id,
-            productoId:req.params.id,
-            comentarios: req.body.comentario
-        } 
-
-        Comentario.create(comentario);
-        res.redirect("/")
-    }}
+  agregarComentario: function(req,res){  
+    let comentario = {
+        usuarioId: req.session.usuario.id,
+        productoId:req.params.id,
+        comentarios: req.body.comentario
+        }
+    
+    Comentario.create(comentario)
+        .then(function(req, res){
+            return res.redirect("/")
+        })
+        .catch(function(errors){
+            console.log(errors);
+            })
+    }
 }
       
 module.exports = productsController;

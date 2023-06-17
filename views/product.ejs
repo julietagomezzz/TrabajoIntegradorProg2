@@ -1,10 +1,10 @@
 <%- include('./partials/head.ejs')%>
 <body>
 	<!-- Header -->
-	<% if (locals.username != undefined) { %>
-		<%- include('./partials/headerLogueado.ejs') %>  
+	<% if (locals.usuario != undefined) { %>
+		<%- include('./partials/headerLogueado') %>  
 	<% } else{%>
-		<%- include('./partials/header.ejs') %>  
+		<%- include('./partials/header') %>  
 	<% } %>
 	<!-- /Header -->
 	
@@ -16,17 +16,18 @@
 			<p class="product-detail-description">
 				<a href="/products/edit">Editar</a>
 			</p>
-			<form action="/product/borrar" method="post">
+			<form action="/product/postdelete" method="post">
 				<input name="id" type="text" value="<%= data.id %>" hidden>
 				<button class="borrar" type="submit">
 					Borrar <i class="fas fa-sign-in-alt"></i>
 				</button>
 			</form> 
-			<h3> Publicado por : <%= usuario.nombre %></h3>
+			<p>
+			<a href="/users/profile/<%= data.usuario.id %>"> Publicado por <%= usuario.nombre %> </a>
 			<% if (locals.errors)  { %>
 				<p style="color: rgb(0, 0, 0);"> <%= locals.errors.message %></p>
 			<% } %>
-
+			</p>
 		</div>
 		<div class="product-detail">
 			
@@ -41,13 +42,18 @@
 				<div class="col-12 col-lg-4">
 					<section class="comments">
 					
-					
-						<% for( let index = 0; index < comentarios.length; index++ ) { %>
-							<img src="<%= comentarios[index].usuario.fotoDePerfil %>" alt="">
-						<% } %>
-						
+						<% for( let i = 0; i < comentarios.length; i++ ) { %>
+							<article>
+								<img src="<%= comentarios[i].usuario.fotoDePerfil %>" alt="">
+								<div class="data">
+									<p class="user">
+									<strong> <a href="/users/profile/<%= comentarios[i].usuario.id %>"> <%= comentarios[i].usuario.nombre %> </a> </strong>
+									<%= comentarios[i].comentarios %>
+								</div>
+							</article>
+							<% } %>
 					</section>
-					<form class="form" action="" method="post">
+					<form class="form" action="/products/detalle/id/<%= data.id %>" method="post">
 						<input class="form-input" type="text" name="comentario" value="" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>

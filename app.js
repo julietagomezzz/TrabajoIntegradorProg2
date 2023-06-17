@@ -26,7 +26,6 @@ app.use(session({
   saveUninitialized: true
 }))
 
-
 app.use(function(req,res,next){
   if (req.session.usuario != undefined) {
     res.locals.usuario = req.session.usuario;

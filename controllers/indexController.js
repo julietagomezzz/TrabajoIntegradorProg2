@@ -37,7 +37,7 @@ const indexController = {
                 let check = bcryptjs.compareSync(req.body.password, results.contrasena) 
                 // res.send({value:check})
                 if(check){
-                    req.session.usuario = results.dataValues; 
+                    req.session.usuario = results; 
                     if (req.body.recordarme){
                         // res.send({id:req.body.recordarme})
                         res.cookie('usuario', results.dataValues.id, {maxAge: 1000 * 60 * 5})
